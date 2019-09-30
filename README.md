@@ -1,68 +1,108 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# SASS in React
 
-## Available Scripts
+## Objectives
+- What is SASS? What does it give that out of the box CSS doesn't?
+- How to add SASS to our React projects?
+- SASS functionality & fundamentals
+  - Nested Selectors
+  - Variables
+  - Mixins
+  - Extends
+  - Other Functions & functionality
+- How to structure SASS files
 
-In the project directory, you can run:
+## Examples of SCSS and Sass
 
-### `npm start`
+### [SCSS Section Design](https://codepen.io/janmez/pen/aLdBEJ?editors=0100)
+### [SASS CSS Cassette Art](https://codepen.io/janmez/pen/wNKxex)
 
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Installing SASS in React
+**This is it**
+```
+npm install node-sass --save
+```
 
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
+## Nested Selectors
+```
+/* SASS file */
+nav.navigation{
+    width: 100%
+    ul{
+        list-style: none;
+        li{
+            bakground: #ccc;
+        }
+    }
+}
+======
+/* Complied CSS file */
+nav.navigation{
+    width: 100%;
+}
+nav.navigation ul{
+    list-style: none;
+}
+nav.navigation ul li{
+    background: #ccc;
+}
+```
+## Variables
+```
+$white: #FAF6F6;
+$main-color: #FEC3A6;
 
-### `npm test`
+.section{
+    background: $white;
+    color: $main-color;
+}
+```
 
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Mixins
+```
+/* SASS file */
+@mixin flexbox-base($direction, $align-i, $justify-c){
+    display: flex;
+    flex-direction: $direction;
+    align-content: $align-i;
+    justify-content: $justify-c;
+}
 
-### `npm run build`
+.selector {
+    @include flexbox-base(column, center, center)
+}
+=====================
+/* Compiled CSS file*/
+.selector{
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    justify-content: center;
+}
 
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
+```
 
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
+## Extends
+```
+/* SASS file */
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+%light-border{
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}
 
-### `npm run eject`
+.selector {
+    @extend %light-borders;
+}
+```
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+## Other Functions
+- `lighten(color, percentage)`
+- `darken(color, percentage)`
+- `transparentize(color, alpha-amount)`
+- `random(number)`
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+## Resources
+- [React Docs - Adding a SASS Stylesheet](https://create-react-app.dev/docs/adding-a-sass-stylesheet)
+- [SASS Documentation](https://sass-lang.com/guide)
+- [Medium - SASS Project Structure](https://medium.com/@dannyhuang_75970/sass-project-structure-for-big-projects-8c4a740846ee)

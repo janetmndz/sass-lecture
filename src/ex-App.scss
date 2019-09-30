@@ -1,0 +1,100 @@
+@import url('https://fonts.googleapis.com/css?family=Noto+Sans&display=swap');
+
+$white: #FAF6F6;
+$main-color: #FEC3A6;
+
+%light-border{
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}
+
+@mixin flex-base($direction, $align, $justify){
+  display: flex;
+  flex-direction: $direction;
+  align-items: $align;
+  justify-content: $justify;
+}
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Noto Sans', sans-serif;
+}
+
+.App{
+  background: $white;
+  width: 100%;
+}
+
+nav.navigation{
+  background: $main-color;
+  width: 100%;
+  height: 100%;
+  ul{
+    height: 100%;
+    @include flex-base(row, center, flex-end);
+    list-style: none;
+    li{
+      padding: 1rem 0;
+      width: 10%;
+      font-size: 1.15rem;
+      text-align: center;
+      line-height: 2;
+      &:hover{
+        cursor: pointer;
+        background: lighten($main-color, 10%);
+      }
+    }
+  }
+}
+
+header.splash-header{
+  width: 100%;
+  height: 90vh;
+  @include flex-base(column, center, center);
+  h1{
+    font-size: 2.25rem;
+    line-height: 2;
+  }
+  form {
+    width: 60%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-evenly;
+    input[name="search"]{
+      width: 80%;
+      padding: 1rem;
+      font-size: 1.15rem;
+      @extend %light-border;
+    }
+    input[type="submit"]{
+      width: 18%;
+      font-size: .85rem;
+      cursor: pointer;
+      @extend %light-border;
+    }
+  }
+}
+main{
+  width: 100%;
+  height: auto;
+  background: $main-color;
+  .moudle-container{
+    width: 60%;
+    margin: 0 auto;
+    padding: 3rem 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    grid-auto-rows: minmax(250px, auto);
+    grid-gap: 2rem;
+    div {
+      background-image: url('http://placekitten.com/500/500');
+      background-size: cover;
+      h2{
+        background: $white;
+        text-align: center;
+      }
+    }
+  }
+}

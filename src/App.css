@@ -1,22 +1,122 @@
+@import url('https://fonts.googleapis.com/css?family=Noto+Sans&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Noto Sans', sans-serif;
+}
+
 .App {
-  text-align: center;
+    background: #FAF6F6;
+    width: 100%;
 }
 
-.App-logo {
-  height: 40vmin;
+/* ========= */
+/* Navigation Styles */
+nav.navigation {
+    background: #FEC3A6;
+    width: 100%;
+    height: 100%;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+nav.navigation ul {
+    height: 100%;
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-end;
 }
 
-.App-link {
-  color: #09d3ac;
+nav.navigation ul li {
+    width: 10%;
+    padding: 1rem 0;
+    font-size: 1.15rem;
+    text-align: center;
+    line-height: 2;
+}
+
+nav.navigation ul li:hover{
+    cursor: pointer;
+    background: #ffe5d8;
+}
+
+/* ========= */
+/* Header Styles */
+header.splash-header {
+    width: 100%;
+    height: 90vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+header.splash-header h1 {
+    font-size: 2.25rem;
+    line-height: 2;
+}
+
+header.splash-header form {
+    width: 60%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: row;
+    align-items: initial;
+    justify-content: space-evenly;
+}
+
+header.splash-header form input[name="search"] {
+    width: 80%;
+    padding: 1rem;
+    font-size: 1.15rem;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+
+}
+
+header.splash-header form input[type="submit"] {
+    width: 18%;
+    font-size: .85rem;
+    background: #ffe5d8;
+    cursor: pointer;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+}
+
+/* ========= */
+/* Main Section Styles */
+main {
+    width: 100%;
+    height: auto;
+    background: #FEC3A6;
+}
+
+main .moudle-container {
+    width: 60%;
+    margin: 0 auto;
+    padding: 3rem 0;
+    display: flex;
+    flex-direction: row;
+    align-content: center;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    /* display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    grid-auto-rows: minmax(250px, auto);
+    grid-gap: 2rem; */
+}
+
+main .moudle-container div {
+    width: 250px;
+    height: 250px;
+    margin: 1rem;
+    background-image: url('http://placekitten.com/500/500');
+    background-size: cover;
+}
+
+main .moudle-container div h2 {
+    background: #FAF6F6;
+    text-align: center;
 }
