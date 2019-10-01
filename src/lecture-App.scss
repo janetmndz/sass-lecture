@@ -1,10 +1,25 @@
 @import url('https://fonts.googleapis.com/css?family=Noto+Sans&display=swap');
 
+$peach: #4F5D75;
+$main-font: 'Noto Sans', sans-serif;
+
+@mixin flexbox-base( $direction, $align, $justify){
+    display: flex;
+    flex-direction: $direction;
+    align-items: $align;
+    justify-content: $justify;
+}
+
+%light-border{
+    border-radius: 10px;
+    border: 3px solid red;
+}
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Noto Sans', sans-serif;
+    font-family: $main-font;
 }
 
 .App {
@@ -15,42 +30,34 @@
 /* ========= */
 /* Navigation Styles */
 nav.navigation {
-    background: #FEC3A6;
+    background: $peach;
     width: 100%;
     height: 100%;
+    ul {
+        height: 100%;
+        list-style: none;
+        @include flexbox-base(row, center, flex-end);
+        li{
+            width: 10%;
+            padding: 1rem 0;
+            font-size: 1.15rem;
+            text-align: center;
+            line-height: 2;
+        }
+        & li:hover{
+            cursor: pointer;
+            background: lighten($peach, 30%);
+        }
+    }
 }
 
-nav.navigation ul {
-    height: 100%;
-    list-style: none;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: flex-end;
-}
-
-nav.navigation ul li {
-    width: 10%;
-    padding: 1rem 0;
-    font-size: 1.15rem;
-    text-align: center;
-    line-height: 2;
-}
-
-nav.navigation ul li:hover{
-    cursor: pointer;
-    background: #ffe5d8;
-}
 
 /* ========= */
 /* Header Styles */
 header.splash-header {
     width: 100%;
     height: 90vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+    @include flexbox-base(column, center, center);
 }
 
 header.splash-header h1 {
@@ -61,18 +68,14 @@ header.splash-header h1 {
 header.splash-header form {
     width: 60%;
     margin: 0 auto;
-    display: flex;
-    flex-direction: row;
-    align-items: initial;
-    justify-content: space-evenly;
+    @include flexbox-base(row, initial, space-evenly);
 }
 
 header.splash-header form input[name="search"] {
     width: 80%;
     padding: 1rem;
     font-size: 1.15rem;
-    border-radius: 6px;
-    border: 1px solid #ccc;
+    @extend %light-border
 
 }
 
@@ -81,8 +84,7 @@ header.splash-header form input[type="submit"] {
     font-size: .85rem;
     background: #ffe5d8;
     cursor: pointer;
-    border-radius: 6px;
-    border: 1px solid #ccc;
+    @extend %light-border;
 }
 
 /* ========= */
@@ -90,7 +92,7 @@ header.splash-header form input[type="submit"] {
 main {
     width: 100%;
     height: auto;
-    background: #FEC3A6;
+    background: $peach;
 }
 
 main .moudle-container {
