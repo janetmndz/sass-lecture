@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css?family=Noto+Sans&display=swap');
 
 $white: #FAF6F6;
+$grey: #757575;
 $main-color: #FEC3A6;
 
 %light-border{
@@ -41,9 +42,10 @@ nav.navigation{
       font-size: 1.15rem;
       text-align: center;
       line-height: 2;
+      transition: all 300ms ease;
       &:hover{
         cursor: pointer;
-        background: lighten($main-color, 10%);
+        background: darken($main-color, 5%);
       }
     }
   }
@@ -52,10 +54,14 @@ nav.navigation{
 header.splash-header{
   width: 100%;
   height: 90vh;
+  background: linear-gradient(transparent, transparentize($main-color, 0.5)), url('https://images.unsplash.com/photo-1462903876006-77f6beb241b4?ixlib=rb-0.3.5&q=85&fm=jpg&crop=entropy&cs=srgb&ixid=eyJhcHBfaWQiOjE0NTg5fQ&s=a10e55d5069675f93f6eb9bc6cfc564c');
+  background-size: cover;
   @include flex-base(column, center, center);
   h1{
     font-size: 2.25rem;
+    text-shadow: 0 0 4px $grey;
     line-height: 2;
+    color: white;
   }
   form {
     width: 60%;

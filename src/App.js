@@ -1,5 +1,5 @@
 import React from 'react';
-import './App.scss';
+import './App.css';
 import Navigation from './components/Navigation'
 import Header from './components/Header'
 import Main from './components/Main'

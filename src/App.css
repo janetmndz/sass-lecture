@@ -1,0 +1,103 @@
+@import url('https://fonts.googleapis.com/css?family=Noto+Sans&display=sborder-radius: 6px');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Noto Sans', sans-serif;
+}
+
+.App{
+    background: #FAF6F6;
+    width: 100%;
+}
+
+nav.navigation{
+    background: #FEC3A6;
+    width: 100%;
+    height: 100%;
+}
+nav.navigation ul{
+    height: 100%;
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+nav.navigation ul li{
+    padding: 1rem 0;
+    width: 10%;
+    font-size: 1.15rem;
+    text-align: center;
+    line-height: 2;
+    transition: all 300ms ease;
+}
+nav.navigation ul li:hover{
+    cursor: pointer;
+    background: #E7B297;
+}
+
+header.splash-header{
+    width: 100%;
+    height: 90vh;
+    background: linear-gradient(transparent, rgba(254, 195, 166, 0.5)), url('https://images.unsplash.com/photo-1462903876006-77f6beb241b4?ixlib=rb-0.3.5&q=85&fm=jpg&crop=entropy&cs=srgb&ixid=eyJhcHBfaWQiOjE0NTg5fQ&s=a10e55d5069675f93f6eb9bc6cfc564c');
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+header.splash-header h1{
+    font-size: 2.25rem;
+    text-shadow: 0 0 4px #757575;
+    line-height: 2;
+    color: white;
+}
+
+header.splash-header form {
+    width: 60%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+form input[name="search"]{
+    width: 80%;
+    padding: 1rem;
+    font-size: 1.15rem;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+}
+form input[type="submit"]{
+    width: 18%;
+    font-size: .85rem;
+    cursor: pointer;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+}
+main{
+    width: 100%;
+    height: auto;
+    background: #FEC3A6;
+}
+.moudle-container{
+    width: 60%;
+    margin: 0 auto;
+    padding: 3rem 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    grid-auto-rows: minmax(250px, auto);
+    grid-gap: 2rem;
+}
+
+.moudle-container div {
+    background-image: url('http://placekitten.com/500/500');
+    background-size: cover;
+}
+
+.moudle-container div h2{
+    background: #FAF6F6;
+    text-align: center;
+}
